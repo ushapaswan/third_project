@@ -4,8 +4,6 @@ const likeDislikes = (req,res)=>{
     users=res.tokendata.id;
     knex.select("*").from("likeDislike").where("user_id","=",users ,"post_id","=",req.body.post_id)
    .then((data)=>{
-       console.log(data.length);
-       console.log(data)
         if(data.length>0){
             res.send("you have already liked the post")
         }
